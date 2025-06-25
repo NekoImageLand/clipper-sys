@@ -20,7 +20,7 @@ fn main() {
     match (target_os.as_str(), target_env.as_str()) {
         ("linux", _) | ("windows", "gnu") |  ("android", _)  => println!("cargo:rustc-link-lib=dylib=stdc++"),
         ("macos", _) | ("ios", _) => println!("cargo:rustc-link-lib=dylib=c++"),
-        ("windows", "msvc") => {}
+        ("windows", "msvc") | ("emscripten", _) => {}
         _ => unimplemented!(
             "target_os: {}, target_env: {}",
             target_os.as_str(),
