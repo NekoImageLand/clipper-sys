@@ -12,8 +12,6 @@ fn main() {
         .file("clipper/clipper.cpp")
         .file("clipper/wrapper.cpp")
         .flag_if_supported("-std=c++14")
-        .flag_if_supported("-pthread")
-        .flag_if_supported("-s USE_PTHREADS=1")
         .compile("clipper");
 
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
